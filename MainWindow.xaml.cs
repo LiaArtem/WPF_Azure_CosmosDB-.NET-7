@@ -118,19 +118,19 @@ namespace WPF_Azure_CosmosDB
                 }
                 else if (value_type.Text == "int")
                 {
-                    _ = int.TryParse(m_value1, out int m_value1_int);
-                    _ = int.TryParse(m_value2, out int m_value2_int);
+                    _ = int.TryParse(m_value1, out _);
+                    _ = int.TryParse(m_value2, out _);
                     sqlQueryText = "select * from c where c.partitionKey = '" + new UserData().PartitionKey + "' and c.IntValue >= " + m_value1.Replace(",",".") + " and c.IntValue <=" + m_value2.Replace(",", ".");
                 }
                 else if (value_type.Text == "double")
                 {
-                    _ = double.TryParse(m_value1, out double m_value1_dbl);
-                    _ = double.TryParse(m_value2, out double m_value2_dbl);
+                    _ = double.TryParse(m_value1, out double _);
+                    _ = double.TryParse(m_value2, out double _);
                     sqlQueryText = "select * from c where c.partitionKey = '" + new UserData().PartitionKey + "' and c.DoubleValue >= " + m_value1.Replace(",", ".") + " and c.DoubleValue <=" + m_value2.Replace(",", ".");
                 }
                 else if (value_type.Text == "bool")
                 {
-                    _ = Boolean.TryParse(m_value1, out Boolean m_value1_bool);
+                    _ = Boolean.TryParse(m_value1, out Boolean _);
                     sqlQueryText = "select * from c where c.partitionKey = '" + new UserData().PartitionKey + "' and c.BoolValue = " + m_value1;
                 }
                 else if (value_type.Text == "date")

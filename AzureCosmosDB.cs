@@ -12,10 +12,10 @@ namespace WPF_Azure_CosmosDB
     class Azure_CosmosDB
     {
         // The Azure Cosmos DB endpoint for running this sample.
-        private static readonly string EndpointUri = ConfigurationManager.AppSettings["EndPointUri"];
+        private static readonly string? EndpointUri = ConfigurationManager.AppSettings["EndPointUri"];
 
         // The primary key for the Azure Cosmos account.
-        private static readonly string PrimaryKey = ConfigurationManager.AppSettings["PrimaryKey"];
+        private static readonly string? PrimaryKey = ConfigurationManager.AppSettings["PrimaryKey"];
 
         // The Cosmos client instance
         private CosmosClient cosmosClient;
