@@ -27,8 +27,8 @@ namespace WPF_Azure_CosmosDB
         private Container container;        
 
         // The name of the database and container we will create
-        private string databaseId = "ToDoList";
-        private string containerId = "Items";
+        private readonly string databaseId = "ToDoList";
+        private readonly string containerId = "Items";
 
         public List<UserData> UserDataList;
         public Boolean IsControl;
@@ -87,9 +87,9 @@ namespace WPF_Azure_CosmosDB
         /// Run a query
         private async Task QueryItemsAsync(string sqlQueryText)
         {            
-            QueryDefinition queryDefinition = new QueryDefinition(sqlQueryText);
+            QueryDefinition queryDefinition = new(sqlQueryText);
             FeedIterator<UserData> queryResultSetIterator = this.container.GetItemQueryIterator<UserData>(queryDefinition);
-            List<UserData> uds = new();            
+            List<UserData> uds = [];            
 
             while (queryResultSetIterator.HasMoreResults)
             {
@@ -134,7 +134,7 @@ namespace WPF_Azure_CosmosDB
                 }
             }
 
-            itemBody.TextValue = ud.TextValue;
+            itemBody!.TextValue = ud.TextValue;
             itemBody.IntValue = ud.IntValue;
             itemBody.DoubleValue = ud.DoubleValue;
             itemBody.BoolValue = ud.BoolValue;
